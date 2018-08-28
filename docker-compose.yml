@@ -1,0 +1,16 @@
+version: '3'
+services:
+  app:
+    tty: true
+    stdin_open: true
+    user: scebotari
+    build: .
+    image: expense-tracker
+    command: bundle exec rackup
+    volumes:
+      - ./app:/expense_tracker
+    ports:
+      - "9292:9292"
+    environment:
+      - COLUMNS=235
+      - LINES=33
